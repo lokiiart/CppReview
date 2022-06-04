@@ -17,14 +17,14 @@ class Model {
         };
 
         virtual bool save() const = 0;
-        // bool update();
-        // bool destory();
+        bool update();
+        bool destory();
         
-        // static Model* create();  //new and save
+        static Model* create();  //new and save
 
-        // static Model* first();
-        // static std::vector<Model> all();
-        // static std::vector<Model> find();
+        static Model* first();
+        static std::vector<Model> all();
+        static std::vector<Model> find();
 
         virtual std::ostream & output(std::ostream &out, Model &m) const = 0;
 };

@@ -13,8 +13,8 @@ public:
     {
     }
 
-    virtual std::ostream& output(std::ostream &, Model&);
 
+    std::ostream& output(std::ostream &, Model&) const override;
 private:
     int m_id;
     int m_age;
