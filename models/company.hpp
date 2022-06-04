@@ -1,20 +1,37 @@
 #ifndef company_hpp
 #define company_hpp
 
-#include "../services/db_table.hpp"
 
 #include "model.hpp"
 
+#include <ostream>
 #include <string>
 
-class CompanyModel : public Model {
+class CompanyModel : public __ModelClass<CompanyModel>
+{
     public:
-        explicit CompanyModel(int id, std::string name, int age, std::string address, unsigned int salary):
-            m_id(id),m_name(name),m_age(age),m_address(address),m_salary(salary){};
-        CompanyModel(DBRow *);
-        CompanyModel();
+        explicit CompanyModel(int id, std::string name = "ShaBi", int age = 28, std::string address = "Sugarbush", unsigned int salary = 10000)
+            :
+                m_id(id),
+                m_name(name),
+                m_age(age),
+                m_address(address),
+                m_salary(salary)
+    {};
 
-        virtual std::string description();
+        CompanyModel()
+        {
+            std::cout << "CompanyModel constructed!" << std::endl;
+        };
+
+        std::ostream& output(std::ostream &, Model&) const override;
+
+        std::string name() const
+        {
+            return m_name;
+        }
+
+
 
     private:
         int m_id;
@@ -24,6 +41,5 @@ class CompanyModel : public Model {
         unsigned int m_salary;
 };
 
-test
 
 #endif
