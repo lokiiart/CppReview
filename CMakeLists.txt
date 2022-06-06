@@ -20,6 +20,6 @@ add_subdirectory(services)
 add_subdirectory(clib)
 
 add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} models)
+target_link_libraries(${PROJECT_NAME} myc)
 
 add_subdirectory(test)
